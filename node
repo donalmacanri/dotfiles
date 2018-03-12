@@ -1,0 +1,9 @@
+#!/bin/bash
+
+brew install nvm
+mkdir -p ${HOME}/.nvm
+
+export NVM_DIR="$HOME/.nvm"
+source "$(brew --prefix nvm)/nvm.sh"
+
+nvm install --lts

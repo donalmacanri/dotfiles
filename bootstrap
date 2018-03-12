@@ -28,3 +28,4 @@ brew tap Homebrew/bundle
 ./install
 
 ln -s "${dir}/zshrc" "${HOME}/.zshrc"
+ln -s "${dir}/emacs.d" "${HOME}/.emacs.d"

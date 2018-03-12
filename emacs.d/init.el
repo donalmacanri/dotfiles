@@ -103,14 +103,14 @@
       ;lua               ; one-based indices? one-based indices
        markdown          ; writing docs for people to ignore
       ;ocaml             ; an objective camel
-       (org              ; organize your plain life in plain text
-        +attach          ; custom attachment system
-        +babel           ; running code in org
-        +capture         ; org-capture in and outside of Emacs
-        +export          ; centralized export system + more backends
-        +present         ; Emacs for presentations
+      ;(org              ; organize your plain life in plain text
+      ;  +attach          ; custom attachment system
+      ;  +babel           ; running code in org
+      ;  +capture         ; org-capture in and outside of Emacs
+      ;  +export          ; centralized export system + more backends
+      ;  +present         ; Emacs for presentations
         ;; TODO +publish
-        )
+      ;  )
       ;perl              ; write code no one else can comprehend
       ;php               ; make php less awful to work with
        plantuml          ; diagrams for confusing people more
@@ -141,5 +141,13 @@
        ;; scheme and additional ex commands for evil-mode. Use it as a reference
        ;; for your own.
        :private
-       (donalmacanri +bindings +evil-commands))
+       (donalmacanri +bindings +evil-commands)
+       (org              ; organize your plain life in plain text
+        +attach          ; custom attachment system
+        +babel           ; running code in org
+        +capture         ; org-capture in and outside of Emacs
+        +export          ; centralized export system + more backends
+        +present         ; Emacs for presentations
+        ;; TODO +publish
+        ))
 

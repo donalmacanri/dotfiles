@@ -2,7 +2,6 @@
 
 (if (featurep! +bindings) (load! +bindings))
 
-
 ;;
 ;; Plugins
 ;;

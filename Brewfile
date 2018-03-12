@@ -6,8 +6,8 @@ brew 'git'
 brew 'bash-completion'
 brew 'ag'
 brew 'tree'
-brew 'node'
 brew 'pgcli'
+brew 'heroku'
 
 brew 'coreutils'
 brew 'binutils'
@@ -19,6 +19,8 @@ brew 'gzip'
 brew 'gnu-sed', args: ["with-default-names"]
 brew 'gnu-tar', args: ["with-default-names"]
 brew 'wget'
+brew 'mas'
+brew 'jq'
 
 # casks
 tap 'caskroom/homebrew-cask' || true
@@ -32,6 +34,12 @@ cask 'docker'
 cask 'skype'
 cask 'visual-studio-code'
 cask 'java'
+cask 'datagrip'
+cask 'teamviewer'
+cask 'docker'
+
+# mac app store apps
+mas 'Microsoft Remote Desktop 10', id: 1295203466
 
 # neovim
 tap 'neovim/neovim' || true
@@ -39,3 +47,4 @@ brew 'neovim'
 
 tap 'd12frosted/emacs-plus'
 brew 'emacs-plus'
+

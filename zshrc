@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+set -o emacs
+
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
 export EDITOR=nvim
@@ -20,6 +22,13 @@ fi
 alias vim="nvim"
 alias vi="nvim"
 alias vimdiff='nvim -d'
+
+# NVM config
+if brew ls --versions nvm > /dev/null; then
+  export NVM_DIR="$HOME/.nvm"
+  source "$(brew --prefix nvm)/nvm.sh"
+  nvm use --lts
+fi
 
 # Better history
 # Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
