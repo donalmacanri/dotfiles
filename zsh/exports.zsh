@@ -13,4 +13,10 @@ export PAGER=less
 export EDITOR=nvim
 
 
-export CDPATH=.:$HOME/Documents/Code
+# HISTORY
+HISTSIZE=10000
+SAVEHIST=9000
+HISTFILE=~/.zsh_history
+
+# CDPATH
+CDPATH=.:$HOME/Documents/Code
