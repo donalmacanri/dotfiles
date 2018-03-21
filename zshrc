@@ -2,26 +2,29 @@
 
 set -o emacs
 
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+export ZSH=$HOME/.dotfiles/zsh
 
-export EDITOR=nvim
+# use .localrc for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# all of our zsh files
+typeset -U config_files
+config_files=($ZSH/*.zsh)
+
+# load the path files
+for file in ${(M)config_files}
+do
+  source $file
+done
 
 if (( $+commands[grc] )) && (( $+commands[brew] ))
 then
   source `brew --prefix`/etc/grc.bashrc
 fi
-
-if $(gls &>/dev/null)
-then
-  alias ls="gls -F --color"
-  alias l="gls -lAh --color"
-  alias ll="gls -l --color"
-  alias la='gls -A --color'
-fi
-
-alias vim="nvim"
-alias vi="nvim"
-alias vimdiff='nvim -d'
 
 # NVM config
 if brew ls --versions nvm > /dev/null; then
@@ -29,12 +32,3 @@ if brew ls --versions nvm > /dev/null; then
   source "$(brew --prefix nvm)/nvm.sh"
   nvm use --lts
 fi
-
-# Better history
-# Credits to https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down

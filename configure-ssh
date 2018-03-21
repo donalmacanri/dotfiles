@@ -7,9 +7,11 @@ set -o pipefail
 sshdir=${HOME}/.ssh
 
 # 1password credentials
-secret_key="A3-34TLZQ-HEWL7R-XB46G-4JZMJ-LSJX5-VPKFF"
-email="donalmacanri@bluedrop.com"
-account="bluedrop"
+# secret_key, email, account are stored in .localrc (gitignored)
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
 
 session_token=$(op signin $account $email $secret_key --output=raw)
 

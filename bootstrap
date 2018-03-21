@@ -6,8 +6,10 @@ set -o pipefail
 
 dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-git config --global user.email "donal@bluedrop.com"
-git config --global user.name "Donal Mac An Ri"
+read -p "Git user.email: " gituseremail
+read -p "Git user.name: " gitusername
+git config --global user.email "${gituseremail}"
+git config --global user.name "${gitusername}"
 
 # Check for Homebrew
 if ! command -v brew &> /dev/null

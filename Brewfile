@@ -37,6 +37,7 @@ cask 'java'
 cask 'datagrip'
 cask 'teamviewer'
 cask 'docker'
+cask 'exodus'
 
 # mac app store apps
 mas 'Microsoft Remote Desktop 10', id: 1295203466
