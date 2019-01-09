@@ -25,3 +25,32 @@ ex() {
         echo "'$1' is not a valid file"
     fi
 }
+
+getrepo() {
+    if [[ -z "$1" ]]; then
+        echo "Please provide the name or URL of a git repository"
+	return -1
+    fi
+
+    if [[ ! -d $HOME/code ]]; then
+	 echo "Creating ~/code directory"
+	 mkdir $HOME/code
+    fi
+
+    cd $HOME/code
+    if [[ $1 =~ "((git|ssh|http(s)?)|(git@[\w\.]+))(:(//)?)([\w\.@\:/\-~]+)(\.git)(/)?" ]]; then
+        git clone $repo
+	cd -
+	return
+    fi
+	
+    {{
+        git clone git@bitbucket.org:coursepark/$1.git
+    }} || {{
+        git clone git@bitbucket.org:$1.git
+    }} || {{
+        git clone git@github.com:$1.git
+    }}
+
+    cd -
+}
