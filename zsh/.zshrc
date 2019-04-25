@@ -2,13 +2,17 @@
 
 set -o emacs
 
-export ZSH=${0:a:h}/.zsh
+export ZSH=${HOME}/.zsh
 
 # use .localrc for SUPER SECRET CRAP that you don't
 # want in your public, versioned repo.
 if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
+fi
+
+if [[ $TILIX_ID ]]; then
+  source /etc/profile.d/vte-2.91.sh
 fi
 
 # all of our zsh files
